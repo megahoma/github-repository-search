@@ -4,8 +4,18 @@ import { setNotification } from './ducks/actions/notificationAction'
 
 import Notification from './components/Notification'
 
+import { ThemeProvider, DefaultTheme } from 'styled-components'
+import GlobalStyle from './styles/global'
+import light from './styles/themes/light'
+import dark from './styles/themes/dark'
+
 const App = (): JSX.Element => {
   const dispatch = useDispatch()
+  const [theme, setTheme] = React.useState<DefaultTheme>(light)
+
+  const toggleTheme = () => {
+    setTheme(theme.title === 'light' ? dark : light)
+  }
 
   React.useEffect(() => {
     dispatch(setNotification('=)', 200, 3))
@@ -14,7 +24,10 @@ const App = (): JSX.Element => {
 
   return (
     <React.Fragment>
-      <Notification />
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Notification />
+      </ThemeProvider>
     </React.Fragment>
   )
 }
