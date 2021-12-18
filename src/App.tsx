@@ -8,7 +8,8 @@ const App = (): JSX.Element => {
   const dispatch = useDispatch()
 
   React.useEffect(() => {
-    dispatch(setNotification('=)', 400, 3))
+    dispatch(setNotification('=)', 200, 3))
+    //dispatch(setNotification('=(', 400, 3))
   }, [dispatch])
 
   return (
