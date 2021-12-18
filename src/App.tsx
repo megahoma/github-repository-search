@@ -2,12 +2,13 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { setNotification } from './ducks/actions/notificationAction'
 
-import Notification from './components/Notification'
-
 import { ThemeProvider, DefaultTheme } from 'styled-components'
 import GlobalStyle from './styles/global'
 import light from './styles/themes/light'
 import dark from './styles/themes/dark'
+
+import Notification from './components/Notification'
+import Header from './components/Header'
 
 const App = (): JSX.Element => {
   const dispatch = useDispatch()
@@ -26,7 +27,9 @@ const App = (): JSX.Element => {
     <React.Fragment>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
+
         <Notification />
+        <Header toggleTheme={toggleTheme} titleTheme={theme.title} />
       </ThemeProvider>
     </React.Fragment>
   )
