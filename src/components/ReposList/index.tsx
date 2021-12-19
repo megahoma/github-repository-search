@@ -10,21 +10,18 @@ const ReposList = (): JSX.Element => {
 
   return (
     <React.Fragment>
-      <Container>
-        <Title>
-          {repos.total_count.toLocaleString('en-IN')} repository results
-        </Title>
-
-        {repos.items.length > 0 ? (
-          <React.Fragment>
-            {repos.items.map((item) => (
-              <Item key={item.full_name} data={item} />
-            ))}
-          </React.Fragment>
-        ) : (
-          <React.Fragment></React.Fragment>
-        )}
-      </Container>
+      {repos.items.length > 0 ? (
+        <Container>
+          <Title>
+            {repos.total_count.toLocaleString('en-IN')} repository results
+          </Title>
+          {repos.items.map((item) => (
+            <Item key={item.full_name} data={item} />
+          ))}
+        </Container>
+      ) : (
+        <React.Fragment></React.Fragment>
+      )}
     </React.Fragment>
   )
 }

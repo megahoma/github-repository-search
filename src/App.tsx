@@ -11,6 +11,7 @@ import Notification from './components/Notification'
 import Header from './components/Header'
 import SearchBar from './components/SearchBar'
 import ReposList from './components/ReposList'
+import Loader from './components/Loader'
 
 const App = (): JSX.Element => {
   const dispatch = useDispatch()
@@ -33,6 +34,7 @@ const App = (): JSX.Element => {
         <Notification />
         <Header toggleTheme={toggleTheme} titleTheme={theme.title} />
         <SearchBar />
+        <Loader />
         <ReposList />
       </ThemeProvider>
     </React.Fragment>

@@ -1,6 +1,7 @@
 export interface RootState {
   notification: NotificationRootState
   repos: ReposState
+  isLoader: LoaderRootState
 }
 
 export type NotificationRootState = {
@@ -33,3 +34,12 @@ export type RepositoryAction = {
   payload: ReposState
 }
 export type DispatchReposType = (args: RepositoryAction) => RepositoryAction
+
+export type LoaderRootState = {
+  status: boolean
+}
+export type LoaderAction = {
+  type: string
+  payload: LoaderRootState
+}
+export type DispatchLoaderType = (args: LoaderAction) => LoaderAction

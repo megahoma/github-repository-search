@@ -2,6 +2,7 @@ import { AnyAction } from 'redux'
 import { ThunkAction } from 'redux-thunk'
 import axios from 'axios'
 import { setNotification } from './notificationAction'
+import { setLoader, deleteLoader } from './LoaderAction'
 
 import { RootState, ReposState, IRepository } from '../../types'
 
@@ -12,6 +13,8 @@ const setRepos = (
 ): ThunkAction<void, RootState, unknown, AnyAction> => {
   return async (dispatch) => {
     try {
+      dispatch(setLoader())
+
       const { data } = (await axios.get(
         `${baseUrl}/search/repositories?q=${searchText}`
       )) as { data: ReposState }
@@ -33,6 +36,7 @@ const setRepos = (
         type: 'NEW-REPOS',
         payload: newDate,
       })
+      dispatch(deleteLoader())
     } catch (error: any) {
       dispatch(setNotification('Unknown Error', 400, 3))
     }
