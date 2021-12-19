@@ -3,6 +3,7 @@ import { ReposState, RepositoryAction } from '../../types'
 const initialState: ReposState = {
   total_count: -1,
   items: [],
+  language: [],
 }
 
 const ReposReducer = (
@@ -14,6 +15,7 @@ const ReposReducer = (
       return {
         total_count: action.payload.total_count,
         items: action.payload.items,
+        language: action.payload.language.filter((el) => el !== null),
       }
 
     default:

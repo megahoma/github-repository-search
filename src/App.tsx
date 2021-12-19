@@ -11,6 +11,7 @@ import Notification from './components/Notification'
 import Header from './components/Header'
 import SearchBar from './components/SearchBar'
 import ReposList from './components/ReposList'
+import FilterPanel from './components/FilterPanel'
 import Loader from './components/Loader'
 
 const App = (): JSX.Element => {
@@ -34,6 +35,7 @@ const App = (): JSX.Element => {
         <Notification />
         <Header toggleTheme={toggleTheme} titleTheme={theme.title} />
         <SearchBar />
+        <FilterPanel />
         <Loader />
         <ReposList />
       </ThemeProvider>

@@ -3,6 +3,7 @@ import { ThunkAction } from 'redux-thunk'
 import axios from 'axios'
 import { setNotification } from './notificationAction'
 import { setLoader, deleteLoader } from './LoaderAction'
+import { clearFilter } from './FilterAction'
 
 import { RootState, ReposState, IRepository } from '../../types'
 
@@ -30,7 +31,12 @@ const setRepos = (
           language: item.language,
           updated_at: item.updated_at,
         })),
+        language: Array.from(
+          new Set(data.items.map((item) => item.language))
+        ).sort() as Array<string>,
       }
+
+      dispatch(clearFilter())
 
       dispatch({
         type: 'NEW-REPOS',

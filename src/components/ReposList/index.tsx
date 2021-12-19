@@ -6,7 +6,18 @@ import { Item } from './item'
 import { Container, Title } from './styles'
 
 const ReposList = (): JSX.Element => {
-  const repos = useSelector((state: RootState) => state.repos)
+  const repos = useSelector((state: RootState) => {
+    const repos = state.repos
+    const isLanguage = state.filter.language
+    if (isLanguage === 'Any') {
+      return repos
+    } else {
+      return {
+        total_count: repos.total_count,
+        items: repos.items.filter((el) => el.language === isLanguage),
+      }
+    }
+  })
 
   return (
     <React.Fragment>

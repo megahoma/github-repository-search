@@ -2,6 +2,7 @@ export interface RootState {
   notification: NotificationRootState
   repos: ReposState
   isLoader: LoaderRootState
+  filter: FilterRootState
 }
 
 export type NotificationRootState = {
@@ -28,6 +29,7 @@ export type IRepository = {
 export type ReposState = {
   total_count: number
   items: IRepository[]
+  language: Array<string>
 }
 export type RepositoryAction = {
   type: string
@@ -43,3 +45,12 @@ export type LoaderAction = {
   payload: LoaderRootState
 }
 export type DispatchLoaderType = (args: LoaderAction) => LoaderAction
+
+export type FilterRootState = {
+  language: string
+}
+export type FilterAction = {
+  type: string
+  payload: FilterRootState
+}
+export type DispatchFilterType = (args: FilterAction) => FilterAction
