@@ -1,5 +1,6 @@
 export interface RootState {
   notification: NotificationRootState
+  repos: ReposState
 }
 
 export type NotificationRootState = {
@@ -13,3 +14,19 @@ export type NotificationAction = {
 export type DispatchNotificationType = (
   args: NotificationAction
 ) => NotificationAction
+
+export type IRepository = {
+  full_name: string
+  description: string
+  html_url: string
+  updated_at: string
+}
+export type ReposState = {
+  total_count: number
+  items: IRepository[]
+}
+export type RepositoryAction = {
+  type: string
+  payload: ReposState
+}
+export type DispatchReposType = (args: RepositoryAction) => RepositoryAction

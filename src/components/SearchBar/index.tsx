@@ -1,13 +1,21 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { setRepos } from '../../ducks/actions/ReposAction'
 
 import { Container, SearchIcon, Input, ErrorMessage, Button } from './styles'
 
 const SearchBar = (): JSX.Element => {
+  const dispatch = useDispatch()
   const [value, setValue] = React.useState<string>('')
-  const [errorMessage, setErrorMessage] = React.useState<boolean>(true)
+  const [errorMessage, setErrorMessage] = React.useState<boolean>(false)
 
   const handleSubmit = () => {
-    console.log(value)
+    if (value.length > 0) {
+      setErrorMessage(false)
+      dispatch(setRepos(value))
+    } else {
+      setErrorMessage(true)
+    }
   }
 
   return (

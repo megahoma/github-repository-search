@@ -44,6 +44,7 @@ export const Input = styled.input`
 export const ErrorMessage = styled.p`
   margin-right: 1em;
   color: red;
+  cursor: default;
 `
 
 export const Button = styled.button`
@@ -52,4 +53,5 @@ export const Button = styled.button`
   background-color: ${(props) => props.theme.colors.primary};
   font-weight: 700;
   color: ${(props) => props.theme.colors.secondary};
+  cursor: pointer;
 `
