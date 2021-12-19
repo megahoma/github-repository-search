@@ -9,10 +9,11 @@ import dark from './styles/themes/dark'
 
 import Notification from './components/Notification'
 import Header from './components/Header'
+import SearchBar from './components/SearchBar'
 
 const App = (): JSX.Element => {
   const dispatch = useDispatch()
-  const [theme, setTheme] = React.useState<DefaultTheme>(light)
+  const [theme, setTheme] = React.useState<DefaultTheme>(dark)
 
   const toggleTheme = () => {
     setTheme(theme.title === 'light' ? dark : light)
@@ -30,6 +31,7 @@ const App = (): JSX.Element => {
 
         <Notification />
         <Header toggleTheme={toggleTheme} titleTheme={theme.title} />
+        <SearchBar />
       </ThemeProvider>
     </React.Fragment>
   )

@@ -6,6 +6,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
 
+  color: ${(props) => props.theme.colors.text};
   cursor: pointer;
 `
 

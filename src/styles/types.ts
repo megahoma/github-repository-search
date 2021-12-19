@@ -8,7 +8,11 @@ declare module 'styled-components' {
 
     colors: {
       backgroundColor: string
+      backgroundColorSearch: string
       text: string
+      textHeader: string
+      primary: string
+      secondary: string
     }
   }
 }
