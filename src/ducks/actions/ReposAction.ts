@@ -22,7 +22,7 @@ const setRepos = (
           full_name: item.full_name,
           description: item.description,
           html_url: item.html_url,
-          topics: item.topics,
+          topics: item.topics === null ? [] : item.topics,
           stargazers_count: item.stargazers_count,
           language: item.language,
           updated_at: item.updated_at,

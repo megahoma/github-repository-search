@@ -9,7 +9,7 @@ export const Container = styled.div`
   align-items: center;
 
   border-radius: 0.938em;
-  background: ${(props) => props.theme.colors.backgroundColorSearch};
+  background: ${(props) => props.theme.colors.backgroundColorContent};
 
   @media (min-width: 1024px) {
     width: 50em;
@@ -29,7 +29,7 @@ export const Input = styled.input`
   flex: 1 1 auto;
   margin-left: 0.5em;
   margin-right: 0.5em;
-  background-color: ${(props) => props.theme.colors.backgroundColorSearch};
+  background-color: ${(props) => props.theme.colors.backgroundColorContent};
 
   color: ${(props) => props.theme.colors.text};
 

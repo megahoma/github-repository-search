@@ -8,11 +8,16 @@ declare module 'styled-components' {
 
     colors: {
       backgroundColor: string
-      backgroundColorSearch: string
+      backgroundColorContent: string
       text: string
       textHeader: string
       primary: string
       secondary: string
+
+      backgroundColorTopics: string
+      backgroundColorHoverTopics: string
+      textTopics: string
+      textHoverTopics: string
     }
   }
 }

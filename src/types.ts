@@ -19,7 +19,7 @@ export type IRepository = {
   full_name: string
   description: string | null
   html_url: string
-  topics: Array<string> | null
+  topics: Array<string>
   stargazers_count: number
   language: string | null
   updated_at: string
