@@ -17,8 +17,11 @@ export type DispatchNotificationType = (
 
 export type IRepository = {
   full_name: string
-  description: string
+  description: string | null
   html_url: string
+  topics: Array<string> | null
+  stargazers_count: number
+  language: string | null
   updated_at: string
 }
 export type ReposState = {
