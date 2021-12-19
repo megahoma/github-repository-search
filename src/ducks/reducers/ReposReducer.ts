@@ -1,7 +1,7 @@
 import { ReposState, RepositoryAction } from '../../types'
 
 const initialState: ReposState = {
-  total_count: 0,
+  total_count: -1,
   items: [],
 }
 
