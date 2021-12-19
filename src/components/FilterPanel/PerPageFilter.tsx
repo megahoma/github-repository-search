@@ -1,28 +1,31 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setLanguageFilter } from '../../ducks/actions/FilterAction'
+import { setPeerPageFilter } from '../../ducks/actions/FilterAction'
 import { RootState } from '../../types'
 
 import { ContainerFilter, Label, Select, Option } from './styles'
 
-const LanguageFilter = (): JSX.Element => {
+const PerPageFilter = (): JSX.Element => {
   const dispatch = useDispatch()
-  const language = useSelector((state: RootState) => state.repos.language)
-  const isLanguage = useSelector((state: RootState) => state.filter.language)
+  const perPage = useSelector(
+    (state: RootState) => state.filter.perPage
+  ) as Array<number>
+  const isPerPage = useSelector((state: RootState) => state.filter.isPerPage)
 
+  console.log(perPage)
   return (
     <React.Fragment>
       <ContainerFilter>
-        <Label>Language</Label>
+        <Label>Per page</Label>
         <Select
           name="select"
-          defaultValue={isLanguage}
+          defaultValue={isPerPage}
           onChange={(event) => {
-            dispatch(setLanguageFilter(event.target.value))
+            const value = Number(event.target.value)
+            dispatch(setPeerPageFilter(value))
           }}
         >
-          <Option value="Any">Any</Option>
-          {language.map((el, i) => (
+          {perPage.map((el, i) => (
             <Option key={i} value={el}>
               {el}
             </Option>
@@ -33,4 +36,4 @@ const LanguageFilter = (): JSX.Element => {
   )
 }
 
-export { LanguageFilter }
+export { PerPageFilter }

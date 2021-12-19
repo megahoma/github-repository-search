@@ -3,27 +3,44 @@ import { ThunkAction } from 'redux-thunk'
 
 import { DispatchFilterType, RootState } from '../../types'
 
-const setFilter = (
+const setLanguageFilter = (
   language: string
 ): ThunkAction<void, RootState, unknown, AnyAction> => {
-  return async (dispatch: DispatchFilterType) => {
+  return async (dispatch: DispatchFilterType, getState) => {
     dispatch({
-      type: 'SET-FILTER',
+      type: 'SET-LANGUAGE-FILTER',
       payload: {
         language,
-      },
-    })
-  }
-}
-const clearFilter = (): ThunkAction<void, RootState, unknown, AnyAction> => {
-  return async (dispatch: DispatchFilterType) => {
-    dispatch({
-      type: 'CLEAR-FILTER',
-      payload: {
-        language: 'Any',
+        isPerPage: getState().filter.isPerPage,
       },
     })
   }
 }
 
-export { setFilter, clearFilter }
+const setPeerPageFilter = (
+  isPerPage: number
+): ThunkAction<void, RootState, unknown, AnyAction> => {
+  return async (dispatch: DispatchFilterType, getState) => {
+    dispatch({
+      type: 'SET-PER-PAGE-FILTER',
+      payload: {
+        language: getState().filter.language,
+        isPerPage,
+      },
+    })
+  }
+}
+
+const clearFilter = (): ThunkAction<void, RootState, unknown, AnyAction> => {
+  return async (dispatch: DispatchFilterType, getState) => {
+    dispatch({
+      type: 'CLEAR-FILTER',
+      payload: {
+        language: 'Any',
+        isPerPage: getState().filter.isPerPage,
+      },
+    })
+  }
+}
+
+export { setLanguageFilter, setPeerPageFilter, clearFilter }

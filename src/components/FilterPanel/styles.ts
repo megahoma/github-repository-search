@@ -2,11 +2,8 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   width: 90%;
-  margin: 30px auto 50px auto;
+  margin: 0 auto 10px auto;
   padding: 0.5em;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 
   border-radius: 0.938em;
   background: ${(props) => props.theme.colors.backgroundColorContent};
@@ -16,16 +13,22 @@ export const Container = styled.div`
   }
 `
 
-export const ContainerSelect = styled.div`
+export const ContainerFilter = styled.div`
   width: 100%;
+  margin-bottom: 10px;
   padding-left: 6px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: ${(props) => props.theme.colors.textHeader};
-`
-export const Label = styled.label``
 
+  &:last-child {
+    margin-bottom: 0;
+  }
+`
+export const Label = styled.label`
+  font-size: 13px;
+`
 export const Select = styled.select`
   width: 60%;
   color: ${(props) => props.theme.colors.textHeader};
@@ -44,5 +47,4 @@ export const Select = styled.select`
     width: 40%;
   }
 `
-//#d0d7de
 export const Option = styled.option``

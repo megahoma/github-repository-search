@@ -12,12 +12,14 @@ const baseUrl: string = 'https://api.github.com'
 const setRepos = (
   searchText: string
 ): ThunkAction<void, RootState, unknown, AnyAction> => {
-  return async (dispatch) => {
+  return async (dispatch, getState) => {
     try {
       dispatch(setLoader())
 
       const { data } = (await axios.get(
-        `${baseUrl}/search/repositories?q=${searchText}`
+        `${baseUrl}/search/repositories?q=${searchText}&per_page=${
+          getState().filter.isPerPage
+        }`
       )) as { data: ReposState }
 
       const newDate: ReposState = {

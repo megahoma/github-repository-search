@@ -48,6 +48,8 @@ export type DispatchLoaderType = (args: LoaderAction) => LoaderAction
 
 export type FilterRootState = {
   language: string
+  perPage?: Array<number>
+  isPerPage: number
 }
 export type FilterAction = {
   type: string

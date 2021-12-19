@@ -1,18 +1,24 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { setRepos } from '../../ducks/actions/ReposAction'
+import { useSelector } from 'react-redux'
 import { RootState } from '../../types'
 
+import { PerPageFilter } from './PerPageFilter'
 import { LanguageFilter } from './LanguageFilter'
+
 import { Container } from './styles'
 
 const FilterPanel = (): JSX.Element => {
-  const dispatch = useDispatch()
+  const reposItems = useSelector((state: RootState) => state.repos.items.length)
 
   return (
     <React.Fragment>
       <Container>
-        <LanguageFilter />
+        <PerPageFilter />
+        {reposItems > 0 ? (
+          <LanguageFilter />
+        ) : (
+          <React.Fragment></React.Fragment>
+        )}
       </Container>
     </React.Fragment>
   )
