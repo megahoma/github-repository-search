@@ -1,12 +1,14 @@
 import { AnyAction } from 'redux'
 import { ThunkAction } from 'redux-thunk'
-
+import { setLoader, deleteLoader } from './LoaderAction'
 import { DispatchFilterType, RootState } from '../../types'
 
 const setLanguageFilter = (
   language: string
 ): ThunkAction<void, RootState, unknown, AnyAction> => {
-  return async (dispatch: DispatchFilterType, getState) => {
+  return async (dispatch, getState) => {
+    dispatch(setLoader())
+
     dispatch({
       type: 'SET-LANGUAGE-FILTER',
       payload: {
@@ -14,6 +16,8 @@ const setLanguageFilter = (
         isPerPage: getState().filter.isPerPage,
       },
     })
+
+    dispatch(deleteLoader())
   }
 }
 
