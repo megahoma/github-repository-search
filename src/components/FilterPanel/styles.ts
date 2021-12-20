@@ -36,7 +36,7 @@ export const Select = styled.select`
   padding: 0.9em 1.5em;
   border-radius: 0.625em;
   background-color: ${(props) => props.theme.colors.backgroundColor};
-  background-image: url('./images/icon-expand.svg');
+  background-image: url(${window.location.origin}/images/icon-expand.svg);
   background-repeat: no-repeat;
   background-position: right 5px center;
   background-size: 24px;

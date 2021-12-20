@@ -20,7 +20,7 @@ export const SearchIcon = styled.div`
   width: 40px;
   height: 40px;
 
-  background-image: url('./images/icon-search.svg');
+  background-image: url(${window.location.origin}/images/icon-search.svg);
   background-repeat: no-repeat;
   background-position: center;
 `

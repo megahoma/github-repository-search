@@ -35,7 +35,7 @@ export const BookIcon = styled.div`
   min-width: 24px;
   margin-right: 8px;
 
-  background-image: url(./images/icon-book.svg);
+  background-image: url(${window.location.origin}/images/icon-book.svg);
   background-repeat: no-repeat;
   background-position: center;
 `
@@ -88,7 +88,7 @@ export const StarIcon = styled.div`
   height: 24px;
   margin-right: 5px;
 
-  background-image: url(./images/icon-star.svg);
+  background-image: url(${window.location.origin}/images/icon-star.svg);
   background-repeat: no-repeat;
   background-position: center;
 `

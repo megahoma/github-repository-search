@@ -1,7 +1,8 @@
 export default {
   title: 'light',
 
-  iconSwitch: './images/icon-moon.svg',
+  iconSwitch: `${window.location.origin}/images/icon-moon.svg`,
+
   colors: {
     backgroundColor: 'hsl(228, 100%, 98%)',
     backgroundColorContent: 'hsl(0, 0%, 100%)',
