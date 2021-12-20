@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { IRepository } from '../../types'
 
 import {
@@ -6,7 +7,6 @@ import {
   BookIcon,
   Content,
   FullName,
-  Link,
   Description,
   TopicsContainer,
   TopicsItem,
@@ -27,7 +27,9 @@ const Item: React.FC<Props> = ({ data }) => {
       <BookIcon />
       <Content>
         <FullName>
-          <Link>{data.full_name}</Link>
+          <Link to={(location) => `${location.pathname}${data.full_name}`}>
+            {data.full_name}
+          </Link>
         </FullName>
         {data.description !== null ? (
           <Description>

@@ -7,9 +7,11 @@ import notificationReducer from './ducks/reducers/notificationReducer'
 import ReposReducer from './ducks/reducers/ReposReducer'
 import LoaderReducer from './ducks/reducers/LoaderReducer'
 import FilterReducer from './ducks/reducers/FilterReducer'
+import RepoReducer from './ducks/reducers/RepoReducer'
 
 const reducer = combineReducers<RootState>({
   notification: notificationReducer,
+  repo: RepoReducer,
   repos: ReposReducer,
   isLoader: LoaderReducer,
   filter: FilterReducer,

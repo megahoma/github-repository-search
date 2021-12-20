@@ -44,9 +44,6 @@ export const FullName = styled.h3`
   color: ${(props) => props.theme.colors.text};
   font-weight: 300;
 `
-export const Link = styled.a`
-  color: ${(props) => props.theme.colors.primary};
-`
 export const Description = styled.p``
 
 export const TopicsContainer = styled.div`

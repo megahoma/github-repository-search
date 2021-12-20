@@ -12,7 +12,6 @@ const PerPageFilter = (): JSX.Element => {
   ) as Array<number>
   const isPerPage = useSelector((state: RootState) => state.filter.isPerPage)
 
-  console.log(perPage)
   return (
     <React.Fragment>
       <ContainerFilter>

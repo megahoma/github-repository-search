@@ -25,9 +25,11 @@ const setRepos = (
       const newDate: ReposState = {
         ...data,
         items: data.items.map((item: IRepository) => ({
+          id: item.id,
           full_name: item.full_name,
           description: item.description,
           html_url: item.html_url,
+          url: item.url,
           topics: item.topics === null ? [] : item.topics,
           stargazers_count: item.stargazers_count,
           language: item.language,

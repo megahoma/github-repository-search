@@ -1,5 +1,6 @@
 export interface RootState {
   notification: NotificationRootState
+  repo: RepoState
   repos: ReposState
   isLoader: LoaderRootState
   filter: FilterRootState
@@ -18,9 +19,11 @@ export type DispatchNotificationType = (
 ) => NotificationAction
 
 export type IRepository = {
+  id: number
   full_name: string
   description: string | null
   html_url: string
+  url: string
   topics: Array<string>
   stargazers_count: number
   language: string | null
@@ -56,3 +59,38 @@ export type FilterAction = {
   payload: FilterRootState
 }
 export type DispatchFilterType = (args: FilterAction) => FilterAction
+
+export type IRepoOwner = {
+  id: number
+  login: string
+  avatar_url: string
+  html_url: string
+  url: string
+  type: string
+}
+export type IRepoLicense = {
+  key: string
+  name: string
+  spdx_id: string
+  url: string
+}
+export type RepoState = {
+  id: number
+  full_name: string
+  owner: IRepoOwner
+  html_url: string
+  url: string
+  description: string | null
+  created_at: string
+  updated_at: string
+  clone_url: string
+  stargazers_count: number
+  language: string | null
+  forks_count: number
+  license: IRepoLicense | null
+}
+export type RepoAction = {
+  type: string
+  payload: RepoState
+}
+export type DispatchRepoType = (args: RepoAction) => RepoAction

@@ -1,5 +1,8 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
+import { BrowserRouter } from 'react-router-dom'
+import Routes from './routes'
+
 import { setNotification } from './ducks/actions/notificationAction'
 
 import { ThemeProvider, DefaultTheme } from 'styled-components'
@@ -9,9 +12,6 @@ import dark from './styles/themes/dark'
 
 import Notification from './components/Notification'
 import Header from './components/Header'
-import SearchBar from './components/SearchBar'
-import ReposList from './components/ReposList'
-import FilterPanel from './components/FilterPanel'
 import Loader from './components/Loader'
 
 const App = (): JSX.Element => {
@@ -30,14 +30,15 @@ const App = (): JSX.Element => {
   return (
     <React.Fragment>
       <ThemeProvider theme={theme}>
-        <GlobalStyle />
+        <BrowserRouter>
+          <GlobalStyle />
 
-        <Notification />
-        <Header toggleTheme={toggleTheme} titleTheme={theme.title} />
-        <SearchBar />
-        <FilterPanel />
-        <Loader />
-        <ReposList />
+          <Notification />
+          <Loader />
+          <Header toggleTheme={toggleTheme} titleTheme={theme.title} />
+
+          <Routes />
+        </BrowserRouter>
       </ThemeProvider>
     </React.Fragment>
   )
