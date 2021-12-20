@@ -27,8 +27,8 @@ const Notification = (): JSX.Element => {
             color={
               notification.status !== null
                 ? notification.status > 300
-                  ? `${window.location.origin}/images/icon-error.svg`
-                  : `${window.location.origin}/images/icon-success.svg`
+                  ? `${process.env.PUBLIC_URL}/images/icon-error.svg`
+                  : `${process.env.PUBLIC_URL}/images/icon-success.svg`
                 : ''
             }
           />
