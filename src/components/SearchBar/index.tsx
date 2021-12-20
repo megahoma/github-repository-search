@@ -31,6 +31,12 @@ const SearchBar = (): JSX.Element => {
           value={value}
           onChange={(event) => {
             setValue(event.target.value)
+
+            /* <!-character by character search--> */
+            if (event.target.value.length !== 0) {
+              dispatch(setRepos(event.target.value))
+            }
+            /* <--character by character search-!> */
           }}
         />
         {errorMessage || total_count === 0 ? (
@@ -38,7 +44,7 @@ const SearchBar = (): JSX.Element => {
         ) : (
           <React.Fragment></React.Fragment>
         )}
-        <Button type="submit" onClick={handleSubmit}>
+        <Button type="submit" onClick={handleSubmit} disabled>
           Search
         </Button>
       </Container>
