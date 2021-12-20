@@ -54,4 +54,6 @@ export const Button = styled.button`
   font-weight: 700;
   color: ${(props) => props.theme.colors.secondary};
   cursor: pointer;
+
+  opacity: ${(props) => (props.disabled ? 0.4 : 1)};
 `
