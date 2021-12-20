@@ -115,7 +115,7 @@ export const StarIcon = styled.div`
   height: 24px;
   margin: 0 auto;
 
-  background-image: url(${window.location.origin}/images/icon-star-blue.svg);
+  background-image: url(${process.env.PUBLIC_URL}/images/icon-star-blue.svg);
   background-repeat: no-repeat;
   background-position: center;
 `
@@ -124,7 +124,7 @@ export const ForksIcon = styled.div`
   height: 24px;
   margin: 0 auto;
 
-  background-image: url(${window.location.origin}/images/icon-branch.svg);
+  background-image: url(${process.env.PUBLIC_URL}/images/icon-branch.svg);
   background-repeat: no-repeat;
   background-position: center;
 `
@@ -133,7 +133,7 @@ export const LicenseIcon = styled.div`
   height: 24px;
   margin: 0 auto;
 
-  background-image: url(${window.location.origin}/images/icon-balance.svg);
+  background-image: url(${process.env.PUBLIC_URL}/images/icon-balance.svg);
   background-repeat: no-repeat;
   background-position: center;
 `

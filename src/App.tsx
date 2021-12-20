@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { BrowserRouter } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 import Routes from './routes'
 
 import { setNotification } from './ducks/actions/notificationAction'
@@ -30,7 +30,7 @@ const App = (): JSX.Element => {
   return (
     <React.Fragment>
       <ThemeProvider theme={theme}>
-        <BrowserRouter>
+        <HashRouter basename={process.env.PUBLIC_URL}>
           <GlobalStyle />
 
           <Notification />
@@ -38,7 +38,7 @@ const App = (): JSX.Element => {
           <Header toggleTheme={toggleTheme} titleTheme={theme.title} />
 
           <Routes />
-        </BrowserRouter>
+        </HashRouter>
       </ThemeProvider>
     </React.Fragment>
   )
