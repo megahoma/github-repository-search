@@ -1,4 +1,5 @@
 import React from 'react'
+import Moment from 'react-moment'
 import { Link } from 'react-router-dom'
 import { IRepository } from '../../types'
 
@@ -15,6 +16,7 @@ import {
   LanguageIcon,
   StarContainer,
   StarIcon,
+  DateCreated,
 } from './styles'
 
 interface Props {
@@ -72,6 +74,10 @@ const Item: React.FC<Props> = ({ data }) => {
           ) : (
             <React.Fragment></React.Fragment>
           )}
+
+          <DateCreated>
+            Updated <Moment format="DD MMM YYYY">{data.updated_at}</Moment>
+          </DateCreated>
         </OtherContainer>
       </Content>
     </ItemContainer>

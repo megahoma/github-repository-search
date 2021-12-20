@@ -106,3 +106,5 @@ export const LanguageIcon = styled.div`
   background: #f1e05a;
   margin-right: 5px;
 `
+
+export const DateCreated = styled.p``

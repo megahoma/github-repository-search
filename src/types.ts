@@ -74,6 +74,9 @@ export type IRepoLicense = {
   spdx_id: string
   url: string
 }
+export type IRepoLanguage = {
+  [key: string]: number
+}
 export type RepoState = {
   id: number
   full_name: string
@@ -88,6 +91,8 @@ export type RepoState = {
   language: string | null
   forks_count: number
   license: IRepoLicense | null
+  topics: Array<string>
+  languageUsed: IRepoLanguage | null
 }
 export type RepoAction = {
   type: string

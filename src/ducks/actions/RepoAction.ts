@@ -4,13 +4,7 @@ import axios from 'axios'
 import { setNotification } from './notificationAction'
 import { setLoader, deleteLoader } from './LoaderAction'
 
-import {
-  RootState,
-  RepoState,
-  IRepoOwner,
-  IRepoLicense,
-  DispatchRepoType,
-} from '../../types'
+import { RootState, RepoState } from '../../types'
 
 const baseUrl: string = 'https://api.github.com'
 
@@ -24,6 +18,10 @@ const setRepo = (
       const { data } = (await axios.get(`${baseUrl}/repos/${url}`)) as {
         data: RepoState
       }
+
+      const { data: data_language } = await axios.get(
+        `${baseUrl}/repos/${url}/languages`
+      )
 
       const newData: RepoState = {
         id: data.id,
@@ -54,6 +52,8 @@ const setRepo = (
                 spdx_id: data.license?.spdx_id,
                 url: data.license?.url,
               },
+        topics: data.topics === null ? [] : data.topics,
+        languageUsed: data_language,
       }
 
       dispatch({

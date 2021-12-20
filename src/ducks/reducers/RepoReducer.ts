@@ -21,6 +21,8 @@ const initialState: RepoState = {
   language: null,
   forks_count: 0,
   license: null,
+  topics: [],
+  languageUsed: null,
 }
 
 const RepoReducer = (
