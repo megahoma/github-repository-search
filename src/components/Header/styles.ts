@@ -5,10 +5,12 @@ export const Container = styled.header`
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  padding: 125px 0 30px 0;
+
+  padding: 50px 0 30px 0;
 
   @media (min-width: 1024px) {
     width: 50em;
+    padding: 100px 0 30px 0;
   }
 `
 
