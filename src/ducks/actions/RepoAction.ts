@@ -63,6 +63,7 @@ const setRepo = (
 
       dispatch(deleteLoader())
     } catch (error: any) {
+      dispatch(deleteLoader())
       dispatch(setNotification('Unknown Error', 400, 3))
     }
   }
