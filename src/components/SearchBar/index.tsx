@@ -11,6 +11,7 @@ const SearchBar = (): JSX.Element => {
 
   const [value, setValue] = React.useState<string>('')
   const [errorMessage, setErrorMessage] = React.useState<boolean>(false)
+  let intervalRef = React.useRef<any>()
 
   const handleSubmit = () => {
     if (value.length > 0) {
@@ -33,9 +34,14 @@ const SearchBar = (): JSX.Element => {
             setValue(event.target.value)
 
             /* <!-character by character search--> */
-            if (event.target.value.length !== 0) {
-              dispatch(setRepos(event.target.value))
-            }
+            clearTimeout(intervalRef.current)
+
+            intervalRef.current = setTimeout(() => {
+              if (event.target.value.length !== 0) {
+                dispatch(setRepos(event.target.value))
+              }
+            }, 1000)
+
             /* <--character by character search-!> */
           }}
         />
