@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.js": "/github-repository-search/static/js/main.b0cd3ac7.js",
+    "main.js": "/github-repository-search/static/js/main.d37cd106.js",
     "static/media/loader.svg": "/github-repository-search/static/media/loader.2d27ead7c10f774c5306bcf3c257a728.svg",
     "index.html": "/github-repository-search/index.html",
-    "main.b0cd3ac7.js.map": "/github-repository-search/static/js/main.b0cd3ac7.js.map"
+    "main.d37cd106.js.map": "/github-repository-search/static/js/main.d37cd106.js.map"
   },
   "entrypoints": [
-    "static/js/main.b0cd3ac7.js"
+    "static/js/main.d37cd106.js"
   ]
 }
