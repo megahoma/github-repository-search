@@ -8,6 +8,7 @@
 - See hover states for all interactive elements on the page
 - Toggle color theme to their preference
 - Filter by language programming
+- Smart search
 
 ## Usage
 
