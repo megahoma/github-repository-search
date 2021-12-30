@@ -1,42 +1,21 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+
 import { RootState } from '../../types'
+import { Container } from './styles'
 
-import { Container, Wrapper, Icon, Message } from './styles'
+import Item from './item'
 
-const Notification = (): JSX.Element => {
+const Notifications = (): JSX.Element => {
   const notification = useSelector((state: RootState) => state.notification)
 
-  if (notification.message === null) {
-    return <React.Fragment></React.Fragment>
-  }
-
   return (
-    <React.Fragment>
-      <Container
-        color={
-          notification.status !== null
-            ? notification.status > 300
-              ? '#d32f2f'
-              : '#2e7d32'
-            : ''
-        }
-      >
-        <Wrapper>
-          <Icon
-            color={
-              notification.status !== null
-                ? notification.status > 300
-                  ? `${process.env.PUBLIC_URL}/images/icon-error.svg`
-                  : `${process.env.PUBLIC_URL}/images/icon-success.svg`
-                : ''
-            }
-          />
-          <Message>{notification.message}</Message>
-        </Wrapper>
-      </Container>
-    </React.Fragment>
+    <Container>
+      {notification.map((el, i) => (
+        <Item key={el.id} message={el.message} status={el.status} />
+      ))}
+    </Container>
   )
 }
 
-export default Notification
+export default Notifications

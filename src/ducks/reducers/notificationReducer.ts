@@ -1,25 +1,23 @@
-import { NotificationRootState, NotificationAction } from '../../types'
+import { NotificationInitialState, NotificationAction } from '../../types'
 
-const initialState: NotificationRootState = {
-  message: null,
-  status: null,
-}
+const initialState: NotificationInitialState = []
 
 const notificationReducer = (
-  state: NotificationRootState = initialState,
+  state: NotificationInitialState = initialState,
   action: NotificationAction
-): NotificationRootState => {
+): NotificationInitialState => {
   switch (action.type) {
     case 'NEW-NOTIFICATION':
-      return {
-        message: action.payload.message,
-        status: action.payload.status,
-      }
+      return [
+        ...state,
+        {
+          id: action.payload.id,
+          message: action.payload.message,
+          status: action.payload.status,
+        },
+      ]
     case 'CLEAR-NOTIFICATION':
-      return {
-        message: action.payload.message,
-        status: action.payload.status,
-      }
+      return state.filter((item) => item.id !== action.payload.id)
     default:
       return state
   }

@@ -1,19 +1,22 @@
 export interface RootState {
-  notification: NotificationRootState
+  notification: NotificationInitialState
   repo: RepoState
   repos: ReposState
   isLoader: LoaderRootState
   filter: FilterRootState
 }
 
-export type NotificationRootState = {
-  message: string | null
-  status: number | null
-}
 export type NotificationAction = {
   type: string
-  payload: NotificationRootState
+  payload: NotificationStateElement
 }
+export type NotificationStatus = 'info' | 'success' | 'error'
+export type NotificationStateElement = {
+  id: string
+  message: string
+  status: NotificationStatus
+}
+export type NotificationInitialState = Array<NotificationStateElement> | []
 export type DispatchNotificationType = (
   args: NotificationAction
 ) => NotificationAction

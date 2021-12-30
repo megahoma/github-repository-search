@@ -23,8 +23,14 @@ const App = (): JSX.Element => {
   }
 
   React.useEffect(() => {
-    dispatch(setNotification('=)', 200, 3))
-    //dispatch(setNotification('=(', 400, 3))
+    dispatch(setNotification('This is a info message!', 'info', 5))
+
+    setTimeout(() => {
+      dispatch(setNotification('This is a success message!', 'success', 5))
+    }, 2000)
+    setTimeout(() => {
+      dispatch(setNotification('This is a error message!', 'error', 5))
+    }, 3000)
   }, [dispatch])
 
   return (

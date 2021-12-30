@@ -1,17 +1,26 @@
 import { AnyAction } from 'redux'
 import { ThunkAction } from 'redux-thunk'
 
-import { DispatchNotificationType, RootState } from '../../types'
+import { randomId } from '../../utils/randomId'
+
+import {
+  DispatchNotificationType,
+  NotificationStatus,
+  RootState,
+} from '../../types'
 
 const setNotification = (
   message: string,
-  status: number,
+  status: NotificationStatus,
   time: number
 ): ThunkAction<void, RootState, unknown, AnyAction> => {
   return async (dispatch: DispatchNotificationType) => {
+    const id = randomId()
+
     dispatch({
       type: 'NEW-NOTIFICATION',
       payload: {
+        id: id,
         message: message,
         status: status,
       },
@@ -21,8 +30,9 @@ const setNotification = (
         dispatch({
           type: 'CLEAR-NOTIFICATION',
           payload: {
-            message: null,
-            status: null,
+            id: id,
+            message: '',
+            status: status,
           },
         }),
       time * 1000
